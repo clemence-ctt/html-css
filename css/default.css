@@ -1,0 +1,147 @@
+:root {
+    --color-lightest: #F2F2EF;
+    --color-medium:#ECEBE7;
+    --color-medium-light: #ddd9;
+    --color-medium-dark: #635756;
+    --color-darkest: #27292D;
+    --color-hover: #C5782B;
+
+    --font-size-small: 0.75rem;
+    --font-size-default: 1rem;
+    --font-size-big: calc(var(--font-size-default) * 2);
+
+    --spacing-default: 1rem;
+    --spacing-larger: calc(var(--spacing-default) * 3);
+    --spacing-smallest: calc(var(--spacing-default) / 3);
+
+}
+
+body {
+    color: var(--color-medium-dark);
+    background-color: var(--color-medium-light);
+    font-family: 'Drive';
+    max-width: 90vw;
+    margin: var(--spacing-default) auto ;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--spacing-default);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-medium-dark);
+}
+
+a :hover {
+    background-color: var(--color-hover);
+    color:var(--color-darkest);
+}
+
+.button__body {
+    text-align: center;
+    border-radius: 3px;
+    padding: var(--spacing-smallest);
+    margin-right: var(--spacing-smallest);
+    margin-left: var(--spacing-smallest);
+    background-color: var(--color-lightest);
+    border: solid 1px var(--color-medium-dark);
+    font-variant : small-caps;
+}
+
+.button--activated {
+    color: var(--color-darkest);
+    background-color: var(--color-medium-dark);
+    border: solid 1px var(--color-darkest);
+}
+
+.post__list {
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--spacing-default);
+}
+
+.post__item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-lightest);
+    box-shadow: 0 0 7px #0005; 
+}
+
+.post__image--container { 
+    min-width:45%;
+}
+
+.post__image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.post__body { 
+    min-width:45%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding : var(--spacing-default);
+    box-sizing: border-box;
+}
+
+.post__title {
+    color: var(--color-darkest);
+    font-variant : small-caps
+}
+
+.post__date {
+    align-self:flex-end;
+    color: var(--color-medium-dark);
+    font-size: var(--font-size-small);
+}
+
+.post__text {
+    font-family: 'WeDrive';
+}
+
+.post__footer {
+    display:flex;
+    justify-content:space-between;
+    padding-top: var(--spacing-default);
+    padding-right: var(--spacing-smallest);
+}
+
+.post__tags {
+    font-size: var(--font-size-small);
+}
+
+/* phones and smaller screen */
+@media (max-width:480px) {
+    .post__item {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* tablets and smaller laptops */
+@media (min-width:481px) {
+    .post__item {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+/* wider screens */
+@media (min-width:1025px) {
+    .post__list  {
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .post__item {
+        display: flex;
+        flex-direction: row;
+        max-width: 43vw;
+    }
+}
+
