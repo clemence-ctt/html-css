@@ -4,7 +4,9 @@
     --color-medium-light: #ddd9;
     --color-medium-dark: #635756;
     --color-darkest: #27292D;
-    --color-hover: #C5782B;
+    
+    --color-hover-00: #EC4997;
+    --color-hover-01: #61C7E3;
 
     --font-size-small: 0.75rem;
     --font-size-default: 1rem;
@@ -25,21 +27,44 @@ body {
     margin: var(--spacing-default) auto ;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color-medium-dark);
+    transition: all 0.3s;
+
+}
+
+
 .menu {
     display: flex;
     justify-content: center;
     padding-bottom: var(--spacing-default);
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-medium-dark);
+.menu a:hover span{
+    background-color: coral;
 }
 
-a :hover {
-    background-color: var(--color-hover);
-    color:var(--color-darkest);
+
+
+.post a :hover {
+    
+    color:var(--color-lightest);
 }
+
+.post:nth-child(odd) a :hover {
+    background-color: var(--color-hover-01);
+    
+}
+
+.post:nth-child(even) a :hover {
+    background-color: var(--color-hover-00);
+}
+
+.button_body a:hover {
+    background-color: coral;
+}
+
 
 .button__body {
     text-align: center;
@@ -64,7 +89,7 @@ a :hover {
     gap: calc(var(--spacing-default) * 1.75);
 }
 
-.post__item {
+.post {
     display: flex;
     flex-direction: column;
     background-color: var(--color-lightest);
@@ -73,7 +98,7 @@ a :hover {
 }
 
 /*==================================================================*/
-.post__item::after {    
+.post::after {    
     position: absolute;
     width: 100%;
     bottom: calc(var(--post_item-border-bottom) * -1 );
@@ -82,14 +107,14 @@ a :hover {
     content: '';
 }
 
-.post__item:nth-child(odd)::after {    
+.post:nth-child(odd)::after {    
     background-image: url("../images/pink-triangle.png");
 }
 
 /*==================================================================*/
 
 
-.post__image--container { 
+.post__image-container { 
     min-width:45%;
 }
 
@@ -134,32 +159,27 @@ a :hover {
     font-size: var(--font-size-small);
 }
 
-/* phones and smaller screen */
-@media (max-width:480px) {
-    .post__item {
-        display: flex;
+/* phones and smaller screens */
+@media screen and (max-width:576px) {
+    .post {
         flex-direction: column;
     }
 }
 
 /* tablets and smaller laptops */
-@media (min-width:481px) {
-    .post__item {
-        display: flex;
+@media screen and (min-width:577px) {
+    .post {
         flex-direction: row;
     }
 }
 
-/* wider screens */
-@media (min-width:1025px) {
+/* desktop, larger screens */
+@media screen and (min-width:1200px) {
     .post__list  {
-        display: flex;
         flex-direction: row;
         justify-content:space-between;
     }
-    .post__item {
-        display: flex;
-        flex-direction: row;
+    .post {
         max-width: 43vw;
     }
 }
